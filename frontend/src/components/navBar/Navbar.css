@@ -1,0 +1,19 @@
+.NavBody {
+    position: fixed;
+    height: 10vh;
+    width: 102%;
+    background: seagreen;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+details>summary {
+    list-style-type: '➡️';
+}
+
+details[open]>summary {
+    list-style-type: '⤵️';
+    list-style-position: outside;
+}

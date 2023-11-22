@@ -1,0 +1,10 @@
+.img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+}
+
+.hover_underline:hover {
+    text-decoration: underline;
+}
