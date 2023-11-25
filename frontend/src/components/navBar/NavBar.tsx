@@ -10,7 +10,7 @@ const Navbar = () => {
 		setIsOpen(!isOpen);
 	};
 	//add a event listener to the dropdown
-	if (localStorage.getItem("token") != null) {
+	if (localStorage.getItem("token") == null) {
 		return <div></div>;
 	} else {
 		return (
