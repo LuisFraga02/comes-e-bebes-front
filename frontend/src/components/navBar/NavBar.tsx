@@ -3,34 +3,29 @@ import "./NavBar.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 const Navbar = () => {
-	const details = document.getElementById("details") as HTMLDetailsElement;
 	const navigate = useNavigate();
 	const [isOpen, setIsOpen] = React.useState(false);
 	const handleOpen = () => {
 		setIsOpen(!isOpen);
 	};
-	//add a event listener to the dropdown
-	if (localStorage.getItem("token") == null) {
+	const userName = localStorage.getItem("userName");
+	if (localStorage.getItem("token") == "nao") {
 		return <div></div>;
 	} else {
 		return (
-			<div className="NavBody row">
-				<div className="col-6">
-					<div>Comes & bebes</div>
-				</div>
-				<div className="col-6">
-					<details id="details" className="dropdown">
-						<summary>Dropdown</summary>
-						<div className="dropdown-content">
-							<div onClick={() => navigate("/")}>Home</div>
-							<div onClick={() => navigate("/login")}>Login</div>
-							<div onClick={() => navigate("/register")}>
-								Register
-							</div>
+			<>
+				<div className="NavBody row justify-content-evenly pr">
+					<div className="col my-auto mx-4">
+						<div>Comes & bebes</div>
+					</div>
+					<div className="col row d-flex justify-content-end my-auto text-end">
+						<h4 className="col my-auto text-end">{userName}</h4>
+						<div className="col-1">
+							<img src={"https://api.dicebear.com/7.x/fun-emoji/svg?seed=" + userName} alt="avatar" className="avatarSize rounded" />
 						</div>
-					</details>
+					</div>
 				</div>
-			</div>
+			</>
 		);
 	}
 };

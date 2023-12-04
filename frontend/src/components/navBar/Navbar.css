@@ -1,19 +1,18 @@
 .NavBody {
     position: fixed;
-    height: 10vh;
-    width: 102%;
+    height: 12vh;
+    width: 101vw;
+    padding-left: 100px;
     background: seagreen;
 }
 
 .pointer {
     cursor: pointer;
 }
-
-details>summary {
-    list-style-type: '➡️';
+.avatarSize {
+    width: 50px;
+    height: 50px;
 }
-
-details[open]>summary {
-    list-style-type: '⤵️';
-    list-style-position: outside;
+.pr{
+    padding-right: 5vw;
 }

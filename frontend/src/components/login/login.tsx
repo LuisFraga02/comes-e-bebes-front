@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
@@ -18,14 +18,11 @@ function Login() {
 			})
 			.then((response) => {
 				if (response.data.message === "Success") {
-					localStorage.setItem(
-						"token",
-						response.data.additionalInfo.jwtToken
-					);
-					localStorage.setItem(
-						"username",
-						response.data.additionalInfo.username
-					);
+					localStorage.setItem("token", response.data.additionalInfo.jwtToken);
+					localStorage.setItem("userName", response.data.additionalInfo.username);
+
+					//put all user info in local storage
+					localStorage.setItem("userInfo", JSON.stringify(response.data.additionalInfo));
 					navigate("/MainPage");
 				}
 			})
@@ -51,65 +48,39 @@ function Login() {
 			passElement.type = "text";
 		}
 	};
+	useEffect(() => {
+		localStorage.setItem("token", "nao");
+	}, []);
 	return (
-		<div
-			style={{ backgroundColor: "#fcb431" }}
-			className="d-flex justify-content-center"
-		>
+		<div style={{ backgroundColor: "#fcb431" }} className="d-flex justify-content-center">
 			<div className="col-sm-12 col-md-6 col-6">
-				<img
-					src="src\assets\comes-e-bebes.png"
-					alt="comes-bebes"
-					className="img"
-				/>
+				<img src="src\assets\comes-e-bebes.png" alt="comes-bebes" className="img" />
 			</div>
 			<div className="col-4 pt-5 mt-5">
 				<div className="pt-5 mt-5 col-10">
 					<div className="input-group m-2">
 						<div className="form-floating">
-							<input
-								type="text"
-								className="form-control"
-								required
-								id="nome"
-								placeholder="nome"
-							/>
+							<input type="text" className="form-control" required id="nome" placeholder="nome" />
 							<label htmlFor="pass">nome</label>
 						</div>
 					</div>
 					<div className="input-group m-2">
 						<div className="form-floating">
-							<input
-								type="password"
-								className="form-control"
-								required
-								id="pass"
-								placeholder="senha"
-							/>
+							<input type="password" className="form-control" required id="pass" placeholder="senha" />
 							<label htmlFor="pass">senha</label>
 						</div>
-						<button
-							className="input-group-text"
-							onClick={handleShowPass}
-						>
-							{showPass ? (
-								<BsFillEyeSlashFill />
-							) : (
-								<BsFillEyeFill />
-							)}
+						<button className="input-group-text" onClick={handleShowPass}>
+							{showPass ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
 						</button>
 					</div>
 					<div className="row p-3">
-						<button
-							type="button"
-							onClick={fazerLogin}
-							className="btn btn-success mx-2 rounded-1 col-2"
-						>
+						<button type="button" onClick={fazerLogin} className="btn btn-success mx-2 rounded-1 col-3 text-center">
 							entrar
 						</button>
 						<div className="col">
 							<label htmlFor="criarConta" className="form-label">
-								ainda não tem uma conta? &nbsp;
+								ainda não tem uma conta?
+								<br />
 								<b
 									id="criarConta"
 									className="hover_underline py-2"
