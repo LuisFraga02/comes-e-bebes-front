@@ -48,14 +48,26 @@ function mainPage() {
 			});
 	};
 	const [itemList, setItemList] = useState<any[]>([]);
+	const [autoScroll, setAutoScroll] = useState<boolean>(true);
+	const handleAutoScroll = () => {
+		setAutoScroll(!autoScroll);
+	};
 	return (
 		<>
 			<Navbar />
 			<br />
 			<br />
 			<div className="container " id="items">
-				<h1 className="p-2 m-2">pratos</h1>
-				<Carousel className="row" cols={5} loop={true} autoplay={4000}>
+				<div className="row">
+					<h1 className="p-2 m-2 col-10">pratos</h1>
+					<div className="form-check form-switch col my-auto">
+						<input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked={autoScroll} onClick={handleAutoScroll} />
+						<label className="form-check-label" htmlFor="flexSwitchCheckChecked">
+							autoscroll
+						</label>
+					</div>
+				</div>
+				<Carousel className="row" cols={5} loop={true} autoplay={autoScroll ? 4000 : 990009999}>
 					{itemList.map((item, index) => (
 						<Carousel.Item key={index} className="col-2" title={item.description}>
 							<div className="card cardHeight">
@@ -69,7 +81,13 @@ function mainPage() {
 										<b>R$ {item.price}</b>
 									</div>
 									<div className="text-end col">
-										<MdOutlineAddShoppingCart size={30} className="bg-success my-2 p-1 rounded" />
+										<MdOutlineAddShoppingCart
+											size={30}
+											className="bg-success my-2 p-1 rounded"
+											onClick={() => {
+												localStorage.setItem("item", item);
+											}}
+										/>
 									</div>
 								</div>
 							</div>
