@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./mainPage.css";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
-
+import Carousel from "react-grid-carousel";
 import Navbar from "../navBar/NavBar";
 import { set } from "date-fns";
 
@@ -55,9 +55,9 @@ function mainPage() {
 			<br />
 			<div className="container " id="items">
 				<h1 className="p-2 m-2">pratos</h1>
-				<div className="row">
+				<Carousel className="row" cols={5} loop={true} autoplay={4000}>
 					{itemList.map((item, index) => (
-						<div key={index} className="col-2" title={item.description}>
+						<Carousel.Item key={index} className="col-2" title={item.description}>
 							<div className="card cardHeight">
 								<img src={"data:image/png;base64," + item.itemImage} alt="item" className="card-img-top border p-4 border restImage " />
 								<div className="card-body text-center">
@@ -73,16 +73,16 @@ function mainPage() {
 									</div>
 								</div>
 							</div>
-						</div>
+						</Carousel.Item>
 					))}
-				</div>
+				</Carousel>
 			</div>
 			<hr />
 			<div className="container my-5 " id="restaurantes">
 				<h1 className="p-2 m-2">restaurantes</h1>
-				<div className="row my-auto">
+				<Carousel className="row my-auto" cols={5}>
 					{restaurantList.map((item, index) => (
-						<div key={index} className="col-2">
+						<Carousel.Item key={index} className="col-2">
 							<div className="card cardHeight">
 								<img src={item.restaurantImage} alt="restaurant" className="card-img-top border p-2 restImage " />
 								<div className="card-body text-center">
@@ -95,9 +95,9 @@ function mainPage() {
 									</div>
 								</div>
 							</div>
-						</div>
+						</Carousel.Item>
 					))}
-				</div>
+				</Carousel>
 			</div>
 			<br />
 			<br />
