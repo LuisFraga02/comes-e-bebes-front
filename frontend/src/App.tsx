@@ -7,9 +7,10 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 //pages
 import Login from "./components/login/login";
-import MainPage from "./components/main/mainPage";
+import MainPage from "./components/mainPage/mainPage";
 import CreateAccount from "./components/createAccount/createAccount";
 import EditAccount from "./components/editAccount/editAccount";
+import Menu from "./components/menu/menu";
 //pages
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 				<Route path="/mainPage" element={<MainPage />} />
 				<Route path="/createAccount" element={<CreateAccount />} />
 				<Route path="/editAccount" element={<EditAccount />} />
+				<Route path="/menu" element={<Menu />} />
 			</Routes>
 		</>
 	);

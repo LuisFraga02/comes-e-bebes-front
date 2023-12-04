@@ -1,9 +1,10 @@
 .NavBody {
     position: fixed;
-    height: 12vh;
+    height: auto;
     width: 101vw;
-    padding-left: 100px;
+    padding: 5px;
     background: rgb(153, 56, 53);
+    z-index: 1;
 }
 
 .pointer {
@@ -20,5 +21,11 @@
     font-family: 'Merienda', cursive;
     font-size: 3vw;
     color: #fcb431
-
 }
+.hoverScale {
+    transition: all 0.3s ease-in-out;
+}
+.hoverScale:hover {
+    transform: scale(1.2);
+}
+```

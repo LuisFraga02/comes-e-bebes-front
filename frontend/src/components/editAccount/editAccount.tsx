@@ -13,7 +13,16 @@ function CreateAccount() {
 	const navigate = useNavigate();
 	const [isUser, setIsUser] = useState(true);
 	const [isRestaurant, setIsRestaurant] = useState(false);
-	const [restaurant, setRestaurant] = useState({});
+	//const [restaurant, setRestaurant] = useState({}) //may be null or undefined
+	const [restaurant, setRestaurant] = useState({
+		restaurantId: 0,
+		restaurantName: "",
+		address: "",
+		workTime: "",
+		isOpen: true,
+		restaurantImage: "",
+		itemList: [],
+	});
 	const [image, setImage] = useState(
 		"data:image/png;base64,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"
 	);
@@ -84,7 +93,7 @@ function CreateAccount() {
 				Swal.fire({
 					icon: "error",
 					title: "Oops...",
-					text: "Something went wrong!",
+					text: "Something went wrong! backend error",
 				});
 			});
 	};
@@ -125,7 +134,7 @@ function CreateAccount() {
 				Swal.fire({
 					icon: "error",
 					title: "Oops...",
-					text: "Something went wrong!",
+					text: "Something went wrong! backend error",
 				});
 			});
 	};

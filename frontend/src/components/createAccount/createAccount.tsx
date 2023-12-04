@@ -94,6 +94,7 @@ function CreateAccount() {
 					title: "Sucesso!",
 					text: "Restaurante cadastrado com sucesso!",
 				});
+				navigate("/");
 			})
 			.catch((error) => {
 				console.log(error);
@@ -114,23 +115,13 @@ function CreateAccount() {
 						<div className="container ">
 							<form className="col-10 pt-5 mx-auto" autoComplete="off">
 								<div className="row rounded-5 cor p-3 mx-3 d-flex justify-content-between">
-									<div className="col">
-										<FaPerson size={110} className="col-6  m-2 p-2" />
-									</div>
-									<div className="col">
-										<h1 className="col-5 text-center my-auto fonteBonita">
-											<br />
-											<b>Novo usuario 😋</b>
-										</h1>
-									</div>
-									<div className="col">
-										<br />
-										<br />
-										<br />
-										<div className="fonteBonita hover_underline p-2  rounded-4 cor2" onClick={handleISRestaurant}>
-											<b>cadastrar um restaurante</b>
-											<MdChangeCircle size={40} className="mx-2" />
-										</div>
+									<FaPerson size={110} className="col m-2 " />
+									<h1 className="col text-center my-auto fonteBonita">Novo usuario 😋</h1>
+									<div className="hover_underline my-auto p-2 col-4 rounded-4 cor2" onClick={handleISRestaurant}>
+										<b className="col text-center">
+											<MdChangeCircle size={40} />
+											cadastrar um restaurante
+										</b>
 									</div>
 								</div>
 								<div className="row">
@@ -181,23 +172,13 @@ function CreateAccount() {
 						<div className="container">
 							<form className="col-10 pt-5 mx-auto">
 								<div className="row rounded-5 cor p-3 mx-3 d-flex justify-content-between">
-									<div className="col">
-										<FaShop size={110} className="col-6 m-2 " />
-									</div>
-									<div className="col">
-										<h1 className="col-5 text-center my-auto fonteBonita">
-											<br />
-											<b>Novo restaurante 🍴</b>
-										</h1>
-									</div>
-									<div className="col">
-										<br />
-										<br />
-										<br />
-										<div className="fonteBonita hover_underline p-2  rounded-4 cor2" onClick={handleISUser}>
-											<b>cadastrar um usuario</b>
-											<MdChangeCircle size={40} className="mx-2" />
-										</div>
+									<FaShop size={110} className="col m-2 " />
+									<h1 className="col text-center my-auto fonteBonita">Novo restaurante 🍴</h1>
+									<div className="hover_underline my-auto p-2 col-3 rounded-4 cor2" onClick={handleISUser}>
+										<b className="col">
+											<MdChangeCircle size={40} />
+											cadastrar um usuario
+										</b>
 									</div>
 								</div>
 								<div className="row mt-4">
