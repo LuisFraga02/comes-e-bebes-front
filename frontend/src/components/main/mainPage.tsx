@@ -40,23 +40,25 @@ function mainPage() {
 			<br />
 			<br />
 			<br />
-			<div className="container my-3">
+			<div className="container my-5 " id="restaurantes">
 				<div className="row my-auto">
 					{restaurantList.map((item, index) => (
-						<div key={index} className="col-2 ">
-							<div className="card">
-								<img src={item.restaurantImage} alt="restaurant" className="card-img-top border " />
-								<div className="card-body">
-									<div className="card-title">nome: {item.restaurantName}</div>
+						<div key={index} className="col-2">
+							<div className="card cardHeight">
+								<img src={item.restaurantImage} alt="restaurant" className="card-img-top border p-2 restImage " />
+								<div className="card-body ">
 									<div className="card-subtitle">id: {item.restaurantId}</div>
-									<div className="card-text">endereço: {item.address}</div>
-									<div className="card-text">aberto: {item.workTime}</div>
+									<div className="card-title">{item.restaurantName}</div>
+									<div className="card-text">{item.address}</div>
+									<div className="card-text">{item.workTime}</div>
 								</div>
 							</div>
 						</div>
 					))}
 				</div>
 			</div>
+			<hr />
+			<div className="container" id="items"></div>
 		</>
 	);
 }

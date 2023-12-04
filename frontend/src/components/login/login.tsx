@@ -22,7 +22,7 @@ function Login() {
 					localStorage.setItem("userName", response.data.additionalInfo.username);
 
 					//put all user info in local storage
-					localStorage.setItem("userInfo", JSON.stringify(response.data.additionalInfo));
+					localStorage.setItem("userInfo", response.data.additionalInfo);
 					navigate("/MainPage");
 				}
 			})

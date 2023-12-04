@@ -9,19 +9,28 @@ const Navbar = () => {
 		setIsOpen(!isOpen);
 	};
 	const userName = localStorage.getItem("userName");
+	const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
+
 	if (localStorage.getItem("token") == "nao") {
 		return <div></div>;
 	} else {
 		return (
 			<>
-				<div className="NavBody row justify-content-evenly pr">
-					<div className="col my-auto mx-4">
-						<div>Comes & bebes</div>
-					</div>
-					<div className="col row d-flex justify-content-end my-auto text-end">
-						<h4 className="col my-auto text-end">{userName}</h4>
+				<div className="NavBody row pr">
+					<h2 className="col my-auto ">Comes & bebes</h2>
+					<div className="col-2 row d-flex justify-content-end my-auto">
+						<h4 className="col my-auto text-end">{userInfo.username}</h4>
 						<div className="col-1">
-							<img src={"https://api.dicebear.com/7.x/fun-emoji/svg?seed=" + userName} alt="avatar" className="avatarSize rounded" />
+							<img
+								onClick={() => {
+									alert(JSON.stringify(userInfo));
+
+									console.log(userInfo);
+								}}
+								src={"https://api.dicebear.com/7.x/fun-emoji/svg?seed=" + userInfo.username}
+								alt="avatar"
+								className="avatarSize rounded"
+							/>
 						</div>
 					</div>
 				</div>
