@@ -20,9 +20,7 @@ function Login() {
 				if (response.data.message === "Success") {
 					localStorage.setItem("token", response.data.additionalInfo.jwtToken);
 					localStorage.setItem("userName", response.data.additionalInfo.username);
-
-					//put all user info in local storage
-					localStorage.setItem("userInfo", response.data.additionalInfo);
+					localStorage.setItem("userInfo", JSON.stringify(response.data.additionalInfo));
 					navigate("/MainPage");
 				}
 			})

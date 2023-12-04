@@ -4,6 +4,8 @@ import { useState } from "react";
 import axios from "axios";
 import "./mainPage.css";
 
+import Navbar from "../navBar/NavBar";
+
 function mainPage() {
 	const navigate = useNavigate();
 
@@ -37,6 +39,7 @@ function mainPage() {
 
 	return (
 		<>
+			<Navbar />
 			<br />
 			<br />
 			<br />
@@ -46,11 +49,11 @@ function mainPage() {
 						<div key={index} className="col-2">
 							<div className="card cardHeight">
 								<img src={item.restaurantImage} alt="restaurant" className="card-img-top border p-2 restImage " />
-								<div className="card-body ">
-									<div className="card-subtitle">id: {item.restaurantId}</div>
-									<div className="card-title">{item.restaurantName}</div>
-									<div className="card-text">{item.address}</div>
-									<div className="card-text">{item.workTime}</div>
+								<div className="card-body text-center">
+									<div className="card-subtitle border rounded">id: {item.restaurantId}</div>
+									<div className="card-title border rounded">{item.restaurantName}</div>
+									<div className="card-text border rounded">{item.address}</div>
+									<div className="card-text border rounded">{item.workTime}</div>
 								</div>
 							</div>
 						</div>

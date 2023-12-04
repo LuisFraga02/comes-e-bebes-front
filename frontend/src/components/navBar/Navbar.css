@@ -3,7 +3,7 @@
     height: 12vh;
     width: 101vw;
     padding-left: 100px;
-    background: seagreen;
+    background: rgb(153, 56, 53);
 }
 
 .pointer {
@@ -15,4 +15,10 @@
 }
 .pr{
     padding-right: 5vw;
+}
+.fonteBonita {
+    font-family: 'Merienda', cursive;
+    font-size: 3vw;
+    color: #fcb431
+
 }

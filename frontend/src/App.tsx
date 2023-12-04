@@ -8,17 +8,17 @@ import "@fontsource/roboto/700.css";
 //pages
 import Login from "./components/login/login";
 import MainPage from "./components/main/mainPage";
-import Navbar from "./components/navBar/NavBar";
 import CreateAccount from "./components/createAccount/createAccount";
+import EditAccount from "./components/editAccount/editAccount";
 //pages
 function App() {
 	return (
 		<>
-			<Navbar />
 			<Routes>
 				<Route path="/" element={<Login />} />
 				<Route path="/mainPage" element={<MainPage />} />
 				<Route path="/createAccount" element={<CreateAccount />} />
+				<Route path="/editAccount" element={<EditAccount />} />
 			</Routes>
 		</>
 	);
