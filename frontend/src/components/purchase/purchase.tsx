@@ -1,4 +1,5 @@
 import axios from "axios";
+import { set } from "date-fns";
 import React from "react";
 import Swal from "sweetalert2";
 function purchase() {
@@ -35,6 +36,26 @@ function purchase() {
 			icon: "info",
 			confirmButtonText: "pagar",
 		}).then(() => {
+			// //create the object
+			// setCompra({
+			// 	description: "Deixar com o porteiro",
+			// 	clientId: userInfo.userId,
+			// 	itemAcquisition: [
+			// 		{
+			// 			description: "sem presunto",
+			// 			item: {
+			// 				price: item.price,
+			// 				itemId: item.itemId,
+			// 				additionalItemList: [
+			// 					{
+			// 						additionalItemId: 1,
+			// 					},
+			// 				],
+			// 			},
+			// 		},
+			// 	],
+			// });
+			//backendProcess();
 			//get the item
 			Swal.fire({
 				title: "compra finalizada",
@@ -46,6 +67,54 @@ function purchase() {
 			});
 		});
 	};
+	// post example object
+	//{
+	//     "description": "Deixar com o porteiro",
+	//     "clientId" : 2,
+	//     "itemAcquisition":[{
+	//         "description": "sem presunto",
+	//         "item":{
+	//             "price":25,
+	//             "itemId":1,
+	//             "additionalItemList":[{
+	//                 "additionalItemId": 1
+	//             }]
+
+	//         }
+	//     }]
+	// }
+	// const [compra, setCompra] = React.useState({});
+	// const backendProcess = async () => {
+	// 	await axios
+	// 		.post("http://localhost:8001/comes-bebes/acquisition", compra, {
+	// 			headers: {
+	// 				Authorization: `Bearer ${userInfo.jwtToken}`,
+	// 			},
+	// 		})
+	// 		.then((response) => {
+	// 			console.log(response.data);
+	// 		});
+	// };
+	// const detalhesCompra = () => {
+	// 	setCompra({
+	// 		description: compra,
+	// 		clientId: userInfo.userId,
+	// 		itemAcquisition: [
+	// 			{
+	// 				description: "sem presunto",
+	// 				item: {
+	// 					price: 25,
+	// 					itemId: 1,
+	// 					additionalItemList: [
+	// 						{
+	// 							additionalItemId: 1,
+	// 						},
+	// 					],
+	// 				},
+	// 			},
+	// 		],
+	// 	});
+	// };
 
 	return (
 		<>
@@ -68,6 +137,7 @@ function purchase() {
 										<h4>restaurante: {restaurant.restaurantName}</h4>
 										<h4>id do restaurante: {item.restaurantId}</h4>
 										<h4>id do item: {item.itemId}</h4>
+										<textarea className="form-control" placeholder="observacoes" />
 										<div className="row">
 											<div className="col">
 												<h4 className="col-11">quantidade</h4>

@@ -33,7 +33,7 @@ function mainPage() {
 			})
 			.then((response) => {
 				setRestaurantList(response.data.additionalInfo);
-				console.log(response.data);
+				//console.log(response.data);
 				//make itemList
 				let auxarr = [];
 				for (let i = 0; i < response.data.additionalInfo.length; i++) {
@@ -67,7 +67,7 @@ function mainPage() {
 						</label>
 					</div>
 				</div>
-				<Carousel className="row" cols={5} loop={true} autoplay={autoScroll ? 4000 : 990009999}>
+				<Carousel className="row" cols={5} loop={true} autoplay={autoScroll ? 2000 : 990009999}>
 					{itemList.map((item, index) => (
 						<Carousel.Item key={index} className="col-2" title={item.description}>
 							<div className="card cardHeight">
