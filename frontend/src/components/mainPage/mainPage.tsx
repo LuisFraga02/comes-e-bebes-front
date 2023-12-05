@@ -4,9 +4,8 @@ import { useState } from "react";
 import axios from "axios";
 import "./mainPage.css";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
-import Carousel from "react-grid-carousel";
 import Navbar from "../navBar/NavBar";
-import { set } from "date-fns";
+import Carousel from "react-grid-carousel";
 
 function mainPage() {
 	const navigate = useNavigate();
@@ -85,7 +84,9 @@ function mainPage() {
 											size={30}
 											className="bg-success my-2 p-1 rounded"
 											onClick={() => {
-												localStorage.setItem("item", item);
+												localStorage.setItem("itemwow", JSON.stringify(item));
+												navigate("/purchase");
+												//console.log(localStorage.getItem("itemwow"));
 											}}
 										/>
 									</div>

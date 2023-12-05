@@ -11,6 +11,7 @@ import MainPage from "./components/mainPage/mainPage";
 import CreateAccount from "./components/createAccount/createAccount";
 import EditAccount from "./components/editAccount/editAccount";
 import Menu from "./components/menu/menu";
+import Purchase from "./components/purchase/purchase";
 //pages
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 				<Route path="/createAccount" element={<CreateAccount />} />
 				<Route path="/editAccount" element={<EditAccount />} />
 				<Route path="/menu" element={<Menu />} />
+				<Route path="/purchase" element={<Purchase />} />
 			</Routes>
 		</>
 	);

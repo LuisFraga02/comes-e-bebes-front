@@ -8,7 +8,7 @@ import "./menu.css";
 import Navbar from "../navBar/NavBar";
 import { da } from "date-fns/locale";
 
-function mainPage() {
+function menu() {
 	const navigate = useNavigate();
 
 	const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
@@ -258,4 +258,4 @@ function mainPage() {
 		</>
 	);
 }
-export default mainPage;
+export default menu;

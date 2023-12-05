@@ -9,7 +9,7 @@ import { FaShop } from "react-icons/fa6";
 import { MdChangeCircle } from "react-icons/md";
 import { useEffect } from "react";
 import { set } from "date-fns";
-function CreateAccount() {
+function editAccount() {
 	const navigate = useNavigate();
 	const [isUser, setIsUser] = useState(true);
 	const [isRestaurant, setIsRestaurant] = useState(false);
@@ -344,4 +344,4 @@ function CreateAccount() {
 		</>
 	);
 }
-export default CreateAccount;
+export default editAccount;
