@@ -25,13 +25,13 @@ function purchase() {
 		getRestaurant();
 	}, []);
 	const [restaurant, setRestaurant] = React.useState({});
-	const [total, setTotal] = React.useState(0);
+	const [total, setTotal] = React.useState(item.price);
 
 	const finalPurchase = async () => {
 		//simulating a purchase
 		Swal.fire({
 			title: "comprando",
-			text: "total da compra: R$ " + item.price * quantidade + "",
+			text: "total da compra: R$ " + total,
 			icon: "info",
 			confirmButtonText: "pagar",
 		}).then(() => {
@@ -56,10 +56,10 @@ function purchase() {
 						<div className="card">
 							<div className="card-body">
 								<div className="row">
-									<div className="col">
+									<div className="col my-auto text-center">
 										<img src={"data:image/png;base64," + item.itemImage} alt="item" className="border p-2 img " />
 									</div>
-									<div className="col">
+									<div className="col my-auto ">
 										<div>
 											<h2 className="row">{item.itemName}</h2>
 											<h4 className="row">{item.description}</h4>
@@ -78,23 +78,24 @@ function purchase() {
 														min="1"
 														value={quantidade}
 														onChange={(e) => {
+															setTotal(Number(e.target.value) * item.price);
 															setQuantidade(Number(e.target.value));
 														}}
 													/>
 												</div>
 											</div>
 										</div>
-									</div>
-								</div>
-								<div className="row my-5">
-									<div className="col">
-										<button className="btn btn-lg btn-success" type="button" onClick={finalPurchase}>
-											finalizar compra
-										</button>
-									</div>
-									<div className="col">
-										<h4>total</h4>
-										<h4>R$ {item.price * quantidade}</h4>
+										<div className="row my-5">
+											<div className="col">
+												<h4>total da compra: R$ {total}</h4>
+												<h5>quantidade de itens :{quantidade}</h5>
+											</div>
+											<div className="col">
+												<button className="btn btn-lg btn-success" type="button" onClick={finalPurchase}>
+													finalizar compra
+												</button>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>

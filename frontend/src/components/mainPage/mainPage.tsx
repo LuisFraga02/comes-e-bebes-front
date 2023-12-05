@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import "./mainPage.css";
-import { MdOutlineAddShoppingCart } from "react-icons/md";
+import { IoBagCheck } from "react-icons/io5";
+
 import Navbar from "../navBar/NavBar";
 import Carousel from "react-grid-carousel";
 
@@ -72,7 +73,7 @@ function mainPage() {
 							<div className="card cardHeight">
 								<img src={"data:image/png;base64," + item.itemImage} alt="item" className="card-img-top border p-4 border restImage " />
 								<div className="card-body text-center">
-									<div className="card-subtitle">id: {item.itemId}</div>
+									{/* <div className="card-subtitle">id: {item.itemId}</div> */}
 									<div className="card-title ">{item.itemName}</div>
 								</div>
 								<div className="row mx-2">
@@ -80,8 +81,8 @@ function mainPage() {
 										<b>R$ {item.price}</b>
 									</div>
 									<div className="text-end col">
-										<MdOutlineAddShoppingCart
-											size={30}
+										<IoBagCheck
+											size={40}
 											className="bg-success my-2 p-1 rounded"
 											onClick={() => {
 												localStorage.setItem("itemwow", JSON.stringify(item));
@@ -105,7 +106,7 @@ function mainPage() {
 							<div className="card cardHeight">
 								<img src={item.restaurantImage} alt="restaurant" className="card-img-top border p-2 restImage " />
 								<div className="card-body text-center">
-									<div className="card-subtitle border rounded">id: {item.restaurantId}</div>
+									{/* <div className="card-subtitle border rounded">id: {item.restaurantId}</div> */}
 									<div className="card-title border rounded">{item.restaurantName}</div>
 									<div className="card-text border rounded">{item.address}</div>
 									<div className="card-text border rounded">{item.workTime}</div>
