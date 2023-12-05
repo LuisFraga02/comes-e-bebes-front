@@ -74,7 +74,7 @@ function purchase() {
 												<div className="col-4">
 													<input
 														type="number"
-														className="form-control col-1"
+														className="form-control col-1 border border-dark"
 														min="1"
 														value={quantidade}
 														onChange={(e) => {
@@ -86,11 +86,11 @@ function purchase() {
 											</div>
 										</div>
 										<div className="row my-5">
-											<div className="col">
+											<div className="col mx-3">
 												<h4>total da compra: R$ {total}</h4>
 												<h5>quantidade de itens :{quantidade}</h5>
 											</div>
-											<div className="col">
+											<div className="col-4">
 												<button className="btn btn-lg btn-success" type="button" onClick={finalPurchase}>
 													finalizar compra
 												</button>
